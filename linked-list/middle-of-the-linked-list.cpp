@@ -1,44 +1,26 @@
-#include <iostream>
-using namespace std;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 
-class Node {
+class Solution {
 public:
-    int data;
-    Node* next;
+    ListNode* middleNode(ListNode* head) {
 
-    Node(int x) {
-        data = x;
-        next = nullptr;
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return slow;
     }
 };
-
-void middle(Node* head) {
-
-    if (head == nullptr) {
-        cout << "List is empty";
-        return;
-    }
-
-    Node* slow = head;
-    Node* fast = head;
-
-    while (fast != nullptr && fast->next != nullptr) {
-        slow = slow->next;
-        fast = fast->next->next;
-    }
-
-    cout << "Middle element = " << slow->data;
-}
-
-int main() {
-
-    Node* head = new Node(10);
-    head->next = new Node(20);
-    head->next->next = new Node(30);
-    head->next->next->next = new Node(40);
-    head->next->next->next->next = new Node(50);
-
-    middle(head);
-
-    return 0;
-}
