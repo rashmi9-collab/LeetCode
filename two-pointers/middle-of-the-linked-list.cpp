@@ -1,5 +1,3 @@
-// Find middle of linked list (easy method)
-
 #include <iostream>
 using namespace std;
 
@@ -10,17 +8,21 @@ public:
 
     Node(int x) {
         data = x;
-        next = NULL;
+        next = nullptr;
     }
 };
 
-// Function to find middle node
 void middle(Node* head) {
+
+    if (head == nullptr) {
+        cout << "List is empty";
+        return;
+    }
+
     Node* slow = head;
     Node* fast = head;
 
-    // slow moves 1 step, fast moves 2 steps
-    while (fast != NULL && fast->next != NULL) {
+    while (fast != nullptr && fast->next != nullptr) {
         slow = slow->next;
         fast = fast->next->next;
     }
@@ -29,7 +31,7 @@ void middle(Node* head) {
 }
 
 int main() {
-    // Creating linked list: 10 -> 20 -> 30 -> 40 -> 50
+
     Node* head = new Node(10);
     head->next = new Node(20);
     head->next->next = new Node(30);
