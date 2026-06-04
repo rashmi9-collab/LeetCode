@@ -9,8 +9,8 @@ if( nums[i] >= tmp) tmp=1;
 else tmp++;
 }
 if(tmp==1) 
-true;
-else 
-false;
+ return true;
+
     }
+    return false;
 };
