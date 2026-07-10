@@ -7,7 +7,7 @@ void prints(int last,int k,int sum, vector<int> &ds,vector<vector<int>> &ans){
     }
     if(sum<=0 || ds.size()>k) return;
 
-    for(int i=last;i<9;i++){
+    for(int i=last;i<=9;i++){
         if(i<=sum){
             ds.push_back(i);
             prints(i+1,k,sum-i,ds,ans);
